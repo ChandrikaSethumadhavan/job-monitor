@@ -1,0 +1,48 @@
+name: Job Monitor
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # Every hour — safe for private repos (720 min/month)
+    # - cron: '*/30 * * * *'  # Every 30 min — use only on PUBLIC repos (unlimited)
+  workflow_dispatch:        # Manual trigger from GitHub UI
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # Needed to commit seen_jobs.json back
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+          ADZUNA_APP_ID:      ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_API_KEY:     ${{ secrets.ADZUNA_API_KEY }}
+        run: python src/main.py
+
+      - name: Commit state
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add data/seen_jobs.json
+          git diff --staged --quiet || git commit -m "chore: update job state [skip ci]"
+          git push
