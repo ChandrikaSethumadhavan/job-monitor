@@ -2,8 +2,7 @@ name: Job Monitor
 
 on:
   schedule:
-    - cron: '0 * * * *'   # Every hour — safe for private repos (720 min/month)
-    # - cron: '*/30 * * * *'  # Every 30 min — use only on PUBLIC repos (unlimited)
+    - cron: '0 */2 * * *'  # Every 2 hours (360 min/month — well within free tier)
   workflow_dispatch:        # Manual trigger from GitHub UI
 
 jobs:
