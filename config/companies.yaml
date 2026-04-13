@@ -13,19 +13,31 @@ companies:
   - url: https://innatera.jobs.personio.com
     name: Innatera Nanosystems    # Spiking neural network chips — NL (Delft)
 
+  - url: https://jobs.ashbyhq.com/recogni
+    name: Recogni                 # AI inference chips — DE (Munich)
+
   # ── Embedded AI / Industrial ML ──────────────────────────────────────────
   - url: https://jobs.smartrecruiters.com/BoschGroup
-    name: Bosch                   # BCAI embedded AI internships — DE
+    name: Bosch                   # BCAI embedded AI — DE
 
   - url: https://jobs.infineon.com/careers
-    name: Infineon Technologies   # Semiconductor AI working student — DE (Munich)
+    name: Infineon Technologies   # Semiconductor AI — DE (Munich)
 
   - url: https://jobs.fraunhofer.de
-    name: Fraunhofer               # Public research ML roles — DE
+    name: Fraunhofer              # Public research ML roles — DE
+
+  - url: https://jobs.siemens.com/careers
+    name: Siemens                 # Industrial AI / edge ML — DE
+
+  - url: https://careers.continental.com
+    name: Continental             # Automotive embedded ML — DE
 
   # ── Computer Vision / Event-based sensing ────────────────────────────────
   - url: https://www.prophesee.ai/company/careers/
-    name: Prophesee               # Event cameras + embedded ML — FR (Paris/Grenoble)
+    name: Prophesee               # Event cameras + embedded ML — FR
+
+  - url: https://careers.basler.com
+    name: Basler AG               # Industrial camera + vision ML — DE (Ahrensburg)
 
   # ── Efficient Deep Learning / Model Compression ──────────────────────────
   - url: https://plumerai.talentify.io
@@ -41,6 +53,22 @@ companies:
 
   - url: https://www.nordicsemi.com/About-us/Careers
     name: Nordic Semiconductor    # BLE + IoT MCUs — NO (Trondheim/Oslo)
+
+  - url: https://careers.st.com
+    name: STMicroelectronics      # MCU + STM32 AI toolchain — FR/IT
+
+  - url: https://www.ams-osram.com/about-ams-osram/careers
+    name: ams OSRAM               # Sensor ICs + embedded ML — AT (Premstaetten)
+
+  - url: https://careers.u-blox.com
+    name: u-blox                  # GNSS + IoT modules — CH (Thalwil)
+
+  # ── Research / Applied ML ────────────────────────────────────────────────
+  - url: https://www.imec-int.com/en/careers
+    name: imec                    # Nanoelectronics research + TinyML — BE (Leuven)
+
+  - url: https://jobs.smartrecruiters.com/Valeo
+    name: Valeo                   # Automotive CV + sensor fusion — FR
 
   # ── IoT / Sensor data ML ─────────────────────────────────────────────────
   - url: https://join.com/companies/green-fusion
@@ -91,7 +119,7 @@ discovery:
   # FREE tier: 250 requests/day — register at https://developer.adzuna.com/
   # UK EXCLUDED — focus on continental Europe English-friendly markets.
   adzuna:
-    enabled: false
+    enabled: true
     keywords: "machine learning engineer embedded AI"
     countries:
       - de    # Germany       — largest EU tech market, many English ML roles
@@ -100,3 +128,7 @@ discovery:
       - se    # Sweden        — English-first tech culture
       - at    # Austria       — German-speaking but many English tech roles
       - be    # Belgium       — imec, Barco, etc.; English-friendly in tech
+      - fr    # France        — Mistral/Prophesee/STMicro etc.
+      - it    # Italy         — Axelera Turin office, STMicro
+      - pl    # Poland        — growing ML/embedded hub, many English roles
+      - no    # Norway        — Nordic Semi HQ, English-first

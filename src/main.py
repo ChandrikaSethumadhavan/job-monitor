@@ -62,18 +62,44 @@ _SCHENGEN_PAT = re.compile(
 
 _NON_SCHENGEN_PAT = re.compile(
     r'\b('
+    # East Asia
     r'china|beijing|shanghai|shenzhen|guangzhou|hong\s+kong|'
-    r'india|bangalore|bengaluru|mumbai|delhi|hyderabad|pune|chennai|'
+    r'japan|tokyo|osaka|kyoto|'
+    r'south\s+korea|korea|seoul|busan|'
+    r'taiwan|taipei|'
+    # South / Southeast Asia
+    r'india|bangalore|bengaluru|mumbai|delhi|hyderabad|pune|chennai|kolkata|noida|gurgaon|'
+    r'vietnam|ho\s+chi\s+minh|hanoi|'
+    r'philippines|manila|cebu|'
+    r'indonesia|jakarta|bali|'
+    r'thailand|bangkok|'
+    r'malaysia|kuala\s+lumpur|'
+    r'singapore|'
+    r'pakistan|karachi|lahore|islamabad|'
+    r'bangladesh|dhaka|'
+    r'sri\s+lanka|colombo|'
+    # Middle East
+    r'uae|dubai|abu\s+dhabi|'
+    r'saudi\s+arabia|riyadh|jeddah|'
+    r'qatar|doha|'
+    r'kuwait|bahrain|'
+    r'israel|tel\s+aviv|'
+    # North America
     r'united\s+states|usa\b|u\.s\.a\.?|'
     r'new\s+york|san\s+francisco|seattle|austin|boston|chicago|'
     r'los\s+angeles|silicon\s+valley|bay\s+area|'
-    r'canada|toronto|vancouver|montreal|calgary|'
-    r'australia|sydney|melbourne|brisbane|'
-    r'japan|tokyo|osaka|'
-    r'south\s+korea|korea|seoul|'
-    r'singapore|taiwan|taipei|'
-    r'brazil|mexico|russia|ukraine|turkey|'
-    r'uae|dubai|abu\s+dhabi|'
+    r'canada|toronto|vancouver|montreal|calgary|ottawa|'
+    # Oceania
+    r'australia|sydney|melbourne|brisbane|perth|'
+    r'new\s+zealand|auckland|'
+    # Latin America
+    r'brazil|mexico|argentina|chile|colombia|peru|'
+    # Africa
+    r'south\s+africa|johannesburg|cape\s+town|'
+    r'nigeria|lagos|kenya|nairobi|egypt|cairo|'
+    # Other Europe (non-Schengen)
+    r'russia|ukraine|belarus|'
+    r'turkey|istanbul|ankara|'
     r'united\s+kingdom|england|scotland|wales|'
     r'london|manchester|edinburgh|birmingham|'
     r'\buk\b|britain|british'
@@ -213,7 +239,8 @@ def main():
     session = get_session()
     new_jobs: list = []
 
-    # Company-specific pages — lenient location, no ML filter (already curated)
+    # Company-specific pages — lenient location, ML filter ON
+    # (Bosch/Fraunhofer/Infineon have thousands of non-ML roles; filter is needed)
     companies = config.get("companies", [])
     logger.info(f"Monitoring {len(companies)} company page(s)")
     for entry in companies:
@@ -221,7 +248,7 @@ def main():
             entry = {"url": entry, "name": entry}
         _register(state, new_jobs,
                   scrape_company(entry, session),
-                  apply_ml_filter=False,
+                  apply_ml_filter=True,
                   strict_location=False)
 
     # Discovery sources — strict location + ML relevance filter
