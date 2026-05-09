@@ -1,4 +1,82 @@
+# Job monitor config — Embedded ML / Edge AI roles, continental Europe (English-posted)
+# ─────────────────────────────────────────────────────────────────────────────
+# ATS auto-detection order: Greenhouse → Lever → Ashby → Workable → SmartRecruiters
+# Falls back to HTML scraping for custom portals (Infineon, Fraunhofer, etc.)
+# ─────────────────────────────────────────────────────────────────────────────
 
+companies:
+
+  # ── Edge AI / Neuromorphic chips ─────────────────────────────────────────
+  - url: https://jobs.ashbyhq.com/axelera
+    name: Axelera AI              # Edge AI accelerator chips — NL/BE/IT
+
+  - url: https://innatera.jobs.personio.com
+    name: Innatera Nanosystems    # Spiking neural network chips — NL (Delft)
+
+  - url: https://jobs.ashbyhq.com/recogni
+    name: Recogni                 # AI inference chips — DE (Munich)
+
+  # ── Embedded AI / Industrial ML ──────────────────────────────────────────
+  - url: https://jobs.smartrecruiters.com/BoschGroup
+    name: Bosch                   # BCAI embedded AI — DE
+
+  - url: https://jobs.infineon.com/careers
+    name: Infineon Technologies   # Semiconductor AI — DE (Munich)
+
+  - url: https://jobs.fraunhofer.de
+    name: Fraunhofer              # Public research ML roles — DE
+
+  - url: https://jobs.siemens.com/careers
+    name: Siemens                 # Industrial AI / edge ML — DE
+
+  - url: https://careers.continental.com
+    name: Continental             # Automotive embedded ML — DE
+
+  # ── Computer Vision / Event-based sensing ────────────────────────────────
+  - url: https://www.prophesee.ai/company/careers/
+    name: Prophesee               # Event cameras + embedded ML — FR
+
+  - url: https://careers.basler.com
+    name: Basler AG               # Industrial camera + vision ML — DE (Ahrensburg)
+
+  # ── Efficient Deep Learning / Model Compression ──────────────────────────
+  - url: https://plumerai.talentify.io
+    name: Plumerai                # Binary neural networks for edge — NL (Amsterdam)
+
+  # ── Large Language / Frontier AI (EU offices, English-first) ─────────────
+  - url: https://jobs.ashbyhq.com/mistral
+    name: Mistral AI              # LLM + deployment research — FR (Paris)
+
+  # ── Semiconductor / Sensor SoCs ──────────────────────────────────────────
+  - url: https://careers.nxp.com
+    name: NXP Semiconductors      # AI compiler + edge ML — DE/NL
+
+  - url: https://www.nordicsemi.com/About-us/Careers
+    name: Nordic Semiconductor    # BLE + IoT MCUs — NO (Trondheim/Oslo)
+
+  - url: https://careers.st.com
+    name: STMicroelectronics      # MCU + STM32 AI toolchain — FR/IT
+
+  - url: https://www.ams-osram.com/about-ams-osram/careers
+    name: ams OSRAM               # Sensor ICs + embedded ML — AT (Premstaetten)
+
+  - url: https://careers.u-blox.com
+    name: u-blox                  # GNSS + IoT modules — CH (Thalwil)
+
+  # ── Research / Applied ML ────────────────────────────────────────────────
+  - url: https://www.imec-int.com/en/careers
+    name: imec                    # Nanoelectronics research + TinyML — BE (Leuven)
+
+  - url: https://jobs.smartrecruiters.com/Valeo
+    name: Valeo                   # Automotive CV + sensor fusion — FR
+
+  # ── IoT / Sensor data ML ─────────────────────────────────────────────────
+  - url: https://join.com/companies/green-fusion
+    name: Green Fusion            # Edge IoT + sensor ML — DE (Berlin)
+
+  # ── Navigation + Sensor Fusion ───────────────────────────────────────────
+  - url: https://www.tomtom.com/careers
+    name: TomTom                  # Maps + ML — NL (Amsterdam)
   # ── BEGIN imported (managed by import_companies.py) ──
   - url: https://www.vitrocell.com/about-us/jobs
     name: "Vitrocell"  # from companies_to_monitor.xlsx:Biomedical
@@ -240,3 +318,59 @@
   # (no URL) Convidera  # from already_applied.xlsx:applied
   # (no URL) OCC Assekuradeur  # from already_applied.xlsx:applied
   # ── END imported ──
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BROAD DISCOVERY — pulls from EU job board APIs and filters for ML relevance
+# ─────────────────────────────────────────────────────────────────────────────
+
+discovery:
+
+  # FREE — EU-focused, no API key needed.
+  # Arbeitnow posts are mostly English-language tech roles across DE/NL/AT/CH.
+  arbeitnow:
+    enabled: true
+    keywords:
+      - machine learning engineer
+      - embedded machine learning
+      - TinyML
+      - edge AI
+      - ML engineer
+      - embedded AI engineer
+      - computer vision engineer
+      - deep learning embedded
+      - MLOps engineer
+      - signal processing machine learning
+      - sensor fusion ML
+      - ONNX quantization
+      - TensorFlow Lite embedded
+
+  # FREE — global remote jobs, no API key needed.
+  # Good for fully remote embedded ML / AI roles open to EU residents.
+  remotive:
+    enabled: true
+    keywords:
+      - machine learning
+      - embedded ML
+      - edge AI
+      - TinyML
+      - computer vision
+      - embedded systems
+    category: "machine-learning"
+
+  # FREE tier: 250 requests/day — register at https://developer.adzuna.com/
+  # UK EXCLUDED — focus on continental Europe English-friendly markets.
+  adzuna:
+    enabled: true
+    keywords: "machine learning engineer embedded AI"
+    countries:
+      - de    # Germany       — largest EU tech market, many English ML roles
+      - nl    # Netherlands   — very English-friendly, Axelera/NXP/TomTom etc.
+      - ie    # Ireland       — English-speaking, large tech hub (Dublin)
+      - se    # Sweden        — English-first tech culture
+      - at    # Austria       — German-speaking but many English tech roles
+      - be    # Belgium       — imec, Barco, etc.; English-friendly in tech
+      - fr    # France        — Mistral/Prophesee/STMicro etc.
+      - it    # Italy         — Axelera Turin office, STMicro
+      - pl    # Poland        — growing ML/embedded hub, many English roles
+      - no    # Norway        — Nordic Semi HQ, English-first
