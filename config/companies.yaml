@@ -1,134 +1,242 @@
-# Job monitor config — Embedded ML / Edge AI roles, continental Europe (English-posted)
-# ─────────────────────────────────────────────────────────────────────────────
-# ATS auto-detection order: Greenhouse → Lever → Ashby → Workable → SmartRecruiters
-# Falls back to HTML scraping for custom portals (Infineon, Fraunhofer, etc.)
-# ─────────────────────────────────────────────────────────────────────────────
 
-companies:
-
-  # ── Edge AI / Neuromorphic chips ─────────────────────────────────────────
-  - url: https://jobs.ashbyhq.com/axelera
-    name: Axelera AI              # Edge AI accelerator chips — NL/BE/IT
-
-  - url: https://innatera.jobs.personio.com
-    name: Innatera Nanosystems    # Spiking neural network chips — NL (Delft)
-
-  - url: https://jobs.ashbyhq.com/recogni
-    name: Recogni                 # AI inference chips — DE (Munich)
-
-  # ── Embedded AI / Industrial ML ──────────────────────────────────────────
-  - url: https://jobs.smartrecruiters.com/BoschGroup
-    name: Bosch                   # BCAI embedded AI — DE
-
-  - url: https://jobs.infineon.com/careers
-    name: Infineon Technologies   # Semiconductor AI — DE (Munich)
-
-  - url: https://jobs.fraunhofer.de
-    name: Fraunhofer              # Public research ML roles — DE
-
-  - url: https://jobs.siemens.com/careers
-    name: Siemens                 # Industrial AI / edge ML — DE
-
-  - url: https://careers.continental.com
-    name: Continental             # Automotive embedded ML — DE
-
-  # ── Computer Vision / Event-based sensing ────────────────────────────────
-  - url: https://www.prophesee.ai/company/careers/
-    name: Prophesee               # Event cameras + embedded ML — FR
-
-  - url: https://careers.basler.com
-    name: Basler AG               # Industrial camera + vision ML — DE (Ahrensburg)
-
-  # ── Efficient Deep Learning / Model Compression ──────────────────────────
-  - url: https://plumerai.talentify.io
-    name: Plumerai                # Binary neural networks for edge — NL (Amsterdam)
-
-  # ── Large Language / Frontier AI (EU offices, English-first) ─────────────
-  - url: https://jobs.ashbyhq.com/mistral
-    name: Mistral AI              # LLM + deployment research — FR (Paris)
-
-  # ── Semiconductor / Sensor SoCs ──────────────────────────────────────────
-  - url: https://careers.nxp.com
-    name: NXP Semiconductors      # AI compiler + edge ML — DE/NL
-
-  - url: https://www.nordicsemi.com/About-us/Careers
-    name: Nordic Semiconductor    # BLE + IoT MCUs — NO (Trondheim/Oslo)
-
-  - url: https://careers.st.com
-    name: STMicroelectronics      # MCU + STM32 AI toolchain — FR/IT
-
-  - url: https://www.ams-osram.com/about-ams-osram/careers
-    name: ams OSRAM               # Sensor ICs + embedded ML — AT (Premstaetten)
-
-  - url: https://careers.u-blox.com
-    name: u-blox                  # GNSS + IoT modules — CH (Thalwil)
-
-  # ── Research / Applied ML ────────────────────────────────────────────────
-  - url: https://www.imec-int.com/en/careers
-    name: imec                    # Nanoelectronics research + TinyML — BE (Leuven)
-
-  - url: https://jobs.smartrecruiters.com/Valeo
-    name: Valeo                   # Automotive CV + sensor fusion — FR
-
-  # ── IoT / Sensor data ML ─────────────────────────────────────────────────
-  - url: https://join.com/companies/green-fusion
-    name: Green Fusion            # Edge IoT + sensor ML — DE (Berlin)
-
-  # ── Navigation + Sensor Fusion ───────────────────────────────────────────
-  - url: https://www.tomtom.com/careers
-    name: TomTom                  # Maps + ML — NL (Amsterdam)
-
-# ─────────────────────────────────────────────────────────────────────────────
-# BROAD DISCOVERY — pulls from EU job board APIs and filters for ML relevance
-# ─────────────────────────────────────────────────────────────────────────────
-
-discovery:
-
-  # FREE — EU-focused, no API key needed.
-  # Arbeitnow posts are mostly English-language tech roles across DE/NL/AT/CH.
-  arbeitnow:
-    enabled: true
-    keywords:
-      - machine learning engineer
-      - embedded machine learning
-      - TinyML
-      - edge AI
-      - ML engineer
-      - embedded AI engineer
-      - computer vision engineer
-      - deep learning embedded
-      - MLOps engineer
-      - signal processing machine learning
-      - sensor fusion ML
-      - ONNX quantization
-      - TensorFlow Lite embedded
-
-  # FREE — global remote jobs, no API key needed.
-  # Good for fully remote embedded ML / AI roles open to EU residents.
-  remotive:
-    enabled: true
-    keywords:
-      - machine learning
-      - embedded ML
-      - edge AI
-      - TinyML
-      - computer vision
-      - embedded systems
-    category: "machine-learning"
-
-  # FREE tier: 250 requests/day — register at https://developer.adzuna.com/
-  # UK EXCLUDED — focus on continental Europe English-friendly markets.
-  adzuna:
-    enabled: true
-    keywords: "machine learning engineer embedded AI"
-    countries:
-      - de    # Germany       — largest EU tech market, many English ML roles
-      - nl    # Netherlands   — very English-friendly, Axelera/NXP/TomTom etc.
-      - ie    # Ireland       — English-speaking, large tech hub (Dublin)
-      - se    # Sweden        — English-first tech culture
-      - at    # Austria       — German-speaking but many English tech roles
-      - be    # Belgium       — imec, Barco, etc.; English-friendly in tech
-      - fr    # France        — Mistral/Prophesee/STMicro etc.
-      - it    # Italy         — Axelera Turin office, STMicro
-      - pl    # Poland        — growing ML/embedded hub, many English roles
-      - no    # Norway        — Nordic Semi HQ, English-first
+  # ── BEGIN imported (managed by import_companies.py) ──
+  - url: https://www.vitrocell.com/about-us/jobs
+    name: "Vitrocell"  # from companies_to_monitor.xlsx:Biomedical
+  - url: https://www.uniklinik-freiburg.de/de.html
+    name: "Uniklinik Freiburg"  # from companies_to_monitor.xlsx:Biomedical
+  - url: https://optobiolabs.com/career
+    name: "Optobiolabs"  # from companies_to_monitor.xlsx:Biomedical
+  - url: https://www.dfki.de/web
+    name: "Dfki"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.psiori.com
+    name: "Psiori"  # from companies_to_monitor.xlsx:AI
+  - url: https://job-boards.greenhouse.io/blackforestlabs
+    name: "Job Boards"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.amazon.jobs/de/jobs/3098952/software-development-engineer-prime-air
+    name: "Amazon"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.maddox.ai/software
+    name: "Maddox"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.safead.de
+    name: "Safead"  # from companies_to_monitor.xlsx:AI
+  - url: https://agile-robots-se.jobs.personio.de/job/2415839
+    name: "Agile Robots Se"  # from companies_to_monitor.xlsx:AI
+  - url: https://jobs.ashbyhq.com/harmattan-ai
+    name: "Ashbyhq"  # from companies_to_monitor.xlsx:AI
+  - url: https://openchip.factorialhr.com
+    name: "Openchip"  # from companies_to_monitor.xlsx:AI
+  - url: https://jobs.neura-robotics.com/search
+    name: "Neura Robotics"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.evt-web.com/de-de/kontakt/karriere
+    name: "Evt Web"  # from companies_to_monitor.xlsx:AI
+  - url: https://autonomous-teaming.jobs.personio.de
+    name: "Autonomous Teaming"  # from companies_to_monitor.xlsx:AI
+  - url: https://spinncloud.com
+    name: "Spinncloud"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.aptiv.com/en/jobs/search
+    name: "Aptiv"  # from companies_to_monitor.xlsx:AI
+  - url: https://plumerai.com
+    name: "Plumerai"  # from companies_to_monitor.xlsx:AI
+  - url: https://flikweertvision.nl
+    name: "Flikweertvision"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.ait.ac.at/en
+    name: "Ait"  # from companies_to_monitor.xlsx:AI
+  - url: https://jobs.volkswagen-group.com/cariad/search
+    name: "Volkswagen Group"  # from companies_to_monitor.xlsx:AI
+  - url: https://jobs.sap.com/go/SAP-Jobs-in-Germany/850601/50
+    name: "Sap"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.dat.de/karriere/uebersicht
+    name: "Dat"  # from companies_to_monitor.xlsx:AI
+  - url: https://www.badencampus.de/karrierehub-2
+    name: "Badencampus"  # from companies_to_monitor.xlsx:AI
+  - url: https://instadeep.com/about-us/careers
+    name: "Instadeep"  # from companies_to_monitor.xlsx:AI
+  - url: https://berlinstartupjobs.com/engineering/senior-data-scientist-datatroniq
+    name: "Berlinstartupjobs"  # from companies_to_monitor.xlsx:Sheet6
+  - url: https://www.ist-ag.com/en/join-us
+    name: "Ist Ag"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://vdi-schwarzwald.de
+    name: "Vdi Schwarzwald"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.sensopart.com/de/unternehmen/karriere
+    name: "Sensopart"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.maxongroup.com/de-de
+    name: "Maxongroup"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://sensirion.com/de
+    name: "Sensirion"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.cicor.com/en
+    name: "Cicor"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.fifty2.eu
+    name: "Fifty2"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.suss.com/en
+    name: "Suss"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.jobst-technologies.com
+    name: "Jobst Technologies"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.cortec-neuro.com
+    name: "Cortec Neuro"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.ionysis.com
+    name: "Ionysis"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.inomed.de
+    name: "Inomed"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://labmaite.com/amlamaite
+    name: "Labmaite"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.siemens.com/de/de.html
+    name: "Siemens"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.sauter-building-control.ch/unternehmen/jobs-und-karriere/sauter-unsere-jobs-ihre-karriere
+    name: "Sauter Building Control"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.aptiv.com/en/jobs
+    name: "Aptiv"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://datatroniq.com/en/career
+    name: "Datatroniq"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.berlin-space-tech.com/careers
+    name: "Berlin Space Tech"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://reflex-aerospace-gmbh.jobs.personio.de
+    name: "Reflex Aerospace Gmbh"  # from companies_to_monitor.xlsx:Sensors Microsystems
+  - url: https://www.frauundberuf-bw.de/kontaktstelle-frau-und-beruf-freiburg
+    name: "Frauundberuf Bw"  # from companies_to_monitor.xlsx:General
+  - url: https://www.ingenieuregesucht.de
+    name: "Ingenieuregesucht"  # from companies_to_monitor.xlsx:General
+  - url: https://iclei-europe.org/jobs
+    name: "Iclei Europe"  # from companies_to_monitor.xlsx:General
+  - url: https://www.badencampus.de
+    name: "Badencampus"  # from companies_to_monitor.xlsx:General
+  - url: https://www.burda.com/de/karriere/suche
+    name: "Burda"  # from companies_to_monitor.xlsx:General
+  - url: https://www.bosch.de
+    name: "Bosch"  # from companies_to_monitor.xlsx:Automotive
+  - url: https://studios.disneyresearch.com/internship-program
+    name: "Disney"  # from already_applied.xlsx:applied
+  - url: https://spinncloud.career.softgarden.de/jobs/29892564/Embedded-Machine-Learning-Engineer
+    name: "spinncloud"  # from already_applied.xlsx:applied
+  - url: https://nxp.wd3.myworkdayjobs.com/en-US/careers/job/Eindhoven/Internship---Thesis-Student-for-Edge-AI-Optimization---LLM-Quantization--f-m-d-_R-10061676
+    name: "NXP semiconductor"  # from already_applied.xlsx:applied
+  - url: https://www.munichelectrification.com/career
+    name: "Munich electrification"  # from already_applied.xlsx:applied
+  - url: https://www.bitteiler.com
+    name: "Bitteiler"  # from already_applied.xlsx:applied
+  - url: https://jobs.infineon.com/careers/job/563808967051210
+    name: "infineon"  # from already_applied.xlsx:applied
+  - url: https://developer.imagimob.com/deepcraft-studio
+    name: "Imagimob"  # from already_applied.xlsx:applied
+  - url: https://jobs.infineon.com/careers/job
+    name: "infineon"  # from already_applied.xlsx:applied
+  - url: https://jobs.schaeffler.com/job/preview/0
+    name: "Schaeffler"  # from already_applied.xlsx:applied
+  - url: https://jobs.siemens-healthineers.com/en_US/searchjobs/JobDetail/499685
+    name: "Siemens healthineer"  # from already_applied.xlsx:applied
+  - url: https://careers.stryker.com/internship-in-research-development-r-d-in-the-field-of-neurosurgical-navigation-systems-and-tracking-technologies-6-months-sep-oct-2026/job/A9A5F40E87F008C8D4D4CB14446A8238
+    name: "Stryker"  # from already_applied.xlsx:applied
+  - url: https://careers.stryker.com/r-d-internship-computer-science-medical-technology-ai-surgical-navigation-6-months-sept-oct-2026/job/FA85841AC5E09912166FA6FC63776C12
+    name: "Stryker"  # from already_applied.xlsx:applied
+  - url: https://www.tesla.com/careers/search/job/software-entwickler-vision-bildverarbeitung-m-w-d-255512
+    name: "Tesla"  # from already_applied.xlsx:applied
+  - url: https://jobs.ashbyhq.com/innatera/8b78d7ce-71bf-4253-a626-cb33c67256dd
+    name: "Innatera"  # from already_applied.xlsx:applied
+  - url: https://jobs.ashbyhq.com/axelera/16912369-6253-450d-a140-8900fa70e5bf
+    name: "Axelera"  # from already_applied.xlsx:applied
+  - url: https://jobs.ashbyhq.com/plumerai/1fff07c0-ee5a-43dc-98ca-a9fe26bb31bd
+    name: "Plumerai"  # from already_applied.xlsx:applied
+  - url: https://careers.qualcomm.com/careers/dashboard
+    name: "Qualcomm"  # from already_applied.xlsx:applied
+  - url: https://careers.qualcomm.com/careers
+    name: "Qualcomm"  # from already_applied.xlsx:applied
+  - url: https://jobs.dlr.de/default/job/Engineer-%28fmd%29-Signal-analysis-with-AI-for-swarm-systems/4498-en_GB
+    name: "DLR"  # from already_applied.xlsx:applied
+  - url: https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/AI-Developer-Technology-Engineer_JR1976952
+    name: "nvidia"  # from already_applied.xlsx:applied
+  - url: https://valeo.wd3.myworkdayjobs.com/de-DE/valeo_jobs/job/Trainee-in-Digitalization-Machine-Learning--m-f-d-_REQ2026070155
+    name: "valeo"  # from already_applied.xlsx:applied
+  - url: https://nomitri.recruitee.com/o/technical-support-engineer-at-fast-growing-berlin-ai-company
+    name: "Nomitri agency"  # from already_applied.xlsx:applied
+  # (no URL) bmw  # from already_applied.xlsx:applied
+  - url: https://jobs.bmwgroup.com/job/M%C3%BCnchen-Agentic-AI-Engineer-%28fmx%29-BY-80809/1269883201
+    name: "bmw"  # from already_applied.xlsx:applied
+  - url: https://flikweertvision.nl/en/vacancy/junior-computer-vision-engineer
+    name: "Flikweertvision"  # from already_applied.xlsx:applied
+  - url: https://jobs.ait.ac.at/Job/260562
+    name: "Austrian institute of technology"  # from already_applied.xlsx:applied
+  - url: https://rooflineai-gmbh.jobs.personio.de/job/2309081
+    name: "Roofline"  # from already_applied.xlsx:applied
+  - url: https://aptiv.wd5.myworkdayjobs.com/en-US/APTIV_CAREERS/job/Bangalore-India/Architect--Embedded-Development--AI-and--Robotics---Edge-AI_J000696353
+    name: "Aptiv"  # from already_applied.xlsx:applied
+  - url: https://aptiv.wd5.myworkdayjobs.com/en-US/APTIV_CAREERS/job/Wuppertal-Germany/AI-ML-Engineer_J000688973
+    name: "Aptiv"  # from already_applied.xlsx:applied
+  - url: https://jobs.sonova.com/job/Berlin-Deep-Learning-Engineer-%28mfd%29-Audatic/1383278933
+    name: "Audatic - Sonova"  # from already_applied.xlsx:applied
+  # (no URL) edgx  # from already_applied.xlsx:applied
+  - url: https://iisfraunhofer.softgarden.io/job/64063998/Research-Associate-%E2%80%93-Deep-Learning-for-Speech-and-Audio-Coding-all-genders-
+    name: "Frauhofer IIS"  # from already_applied.xlsx:applied
+  - url: https://jobs.neura-robotics.com/offer/ai-engineering-intern-human
+    name: "Neura robotics"  # from already_applied.xlsx:applied
+  - url: https://jobs.neura-robotics.com/offer/mlops-engineer-human/1d4ddfe1-a6c5-4096-9ca8-51bf86c06670
+    name: "Neura robotics"  # from already_applied.xlsx:applied
+  - url: https://agile-robots-se.jobs.personio.de/job/2381715
+    name: "Agile robotics"  # from already_applied.xlsx:applied
+  - url: https://odoo.smartex.ai/jobs/detail/machine-learning-engineer-319
+    name: "Smartex"  # from already_applied.xlsx:applied
+  - url: https://jobs.fbk.eu/Annunci/Jobs_FBK_is_looking_for_a_two_junior_developers_for_the_Digital_Industry_Centre_this_position_is_partially_funded_by_the_National_Recovery_and_Resilience_Plan_PNRR_246305147.htm
+    name: "Fondazione Bruno Kessler"  # from already_applied.xlsx:applied
+  - url: https://leonardocompany.wd3.myworkdayjobs.com/en-US/LeonardoCareerSite/job/DE---Darmstadt---Europahaus/Data-Scientist--AI-_R0028157
+    name: "Telespazio / leonardo"  # from already_applied.xlsx:applied
+  - url: https://showheroes.com/career/machine-learning-engineer/980
+    name: "showheroes"  # from already_applied.xlsx:applied
+  - url: https://jobs.infineon.com/careers/job/563808970289701
+    name: "infineon"  # from already_applied.xlsx:applied
+  - url: https://jobs.smartrecruiters.com/BoschGroup/744000121792447
+    name: "Bosch"  # from already_applied.xlsx:applied
+  - url: https://lautsprecherteufel.jobs.personio.de/job/2589499
+    name: "Teufel"  # from already_applied.xlsx:applied
+  # (no URL) GSK  # from already_applied.xlsx:applied
+  # (no URL) AI futures  # from already_applied.xlsx:applied
+  # (no URL) DKFI  # from already_applied.xlsx:applied
+  - url: https://vulcan-energie-ressourcen-gmbh.jobs.personio.de/job/2603791
+    name: "Vulcan Energie Ressourcen Gmbh"  # from already_applied.xlsx:applied
+  - url: https://jobs.ruhr-uni-bochum.de/jobposting/de2137c27ad0b04e2a1315a54fcdc2d3ca0e6cff0
+    name: "UNI"  # from already_applied.xlsx:applied
+  # (no URL) amber  # from already_applied.xlsx:applied
+  - url: https://holtzbrinck-careers.softgarden.io/job/64279708/AI-Engineer-m-f-d-Graduate-Program
+    name: "Holtzbrinck"  # from already_applied.xlsx:applied
+  - url: https://www.arbeitnow.com/jobs/companies/machine-learning-reply/devops-ml-engineer-munich-105145
+    name: "Machine learning Reply - probably an agency"  # from already_applied.xlsx:applied
+  - url: https://www.cib.de/jobboerse/machine-learning-engineer
+    name: "CIB"  # from already_applied.xlsx:applied
+  - url: https://spp.uni-potsdam.de/qisserver/rds
+    name: "Uni potsdam"  # from already_applied.xlsx:applied
+  - url: https://myjobs.indeed.com/applied
+    name: "ViSenSys GmbH"  # from already_applied.xlsx:applied
+  - url: https://careers.synopsys.com/job/-/-/44408/94297252400
+    name: "Synopsys Inc"  # from already_applied.xlsx:applied
+  - url: https://ethonai.recruitee.com/o/ml-internship-deep-learning-for-causal-inference/applied
+    name: "Ethon AI"  # from already_applied.xlsx:applied
+  # (no URL) Code campus  # from already_applied.xlsx:applied
+  # (no URL) HMS  # from already_applied.xlsx:applied
+  # (no URL) Technische hochschule wurzburg  # from already_applied.xlsx:applied
+  # (no URL) Euroclear  # from already_applied.xlsx:applied
+  # (no URL) EagleBurgmann Germany  # from already_applied.xlsx:applied
+  # (no URL) WIlo  # from already_applied.xlsx:applied
+  # (no URL) Mistral AI  # from already_applied.xlsx:applied
+  # (no URL) Intersnack IT KG  # from already_applied.xlsx:applied
+  # (no URL) Applus+ Laboratories  # from already_applied.xlsx:applied
+  # (no URL) Air apps  # from already_applied.xlsx:applied
+  # (no URL) Circula  # from already_applied.xlsx:applied
+  # (no URL) Menio gmbH  # from already_applied.xlsx:applied
+  # (no URL) bizerba  # from already_applied.xlsx:applied
+  # (no URL) LITEF  # from already_applied.xlsx:applied
+  # (no URL) Haiar  # from already_applied.xlsx:applied
+  - url: https://www.linkedin.com/jobs/search-results
+    name: "Sewts"  # from already_applied.xlsx:applied
+  # (no URL) DISH  # from already_applied.xlsx:applied
+  # (no URL) Workflex  # from already_applied.xlsx:applied
+  # (no URL) Bosch  # from already_applied.xlsx:applied
+  # (no URL) Trimble  # from already_applied.xlsx:applied
+  # (no URL) Tagesspiegel  # from already_applied.xlsx:applied
+  - url: https://www.hoffrogge.com/de/jobs
+    name: "Hoffrage"  # from already_applied.xlsx:applied
+  # (no URL) Silbury Deutschland GmbH  # from already_applied.xlsx:applied
+  # (no URL) Heinrich Schmid  # from already_applied.xlsx:applied
+  # (no URL) Kapsch Group  # from already_applied.xlsx:applied
+  # (no URL) VITO Kennispunt Water  # from already_applied.xlsx:applied
+  # (no URL) Aperam  # from already_applied.xlsx:applied
+  # (no URL) Marbl FlexCo  # from already_applied.xlsx:applied
+  # (no URL) Harris computers  # from already_applied.xlsx:applied
+  # (no URL) Convidera  # from already_applied.xlsx:applied
+  # (no URL) OCC Assekuradeur  # from already_applied.xlsx:applied
+  # ── END imported ──
